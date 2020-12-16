@@ -26,6 +26,7 @@ def process_boolean_str(s):
 
 
 def param_validator(param, csq, q):
+    # TODO: add rest with multiple types param
     tp = csq['type']
     res = None
     if tp == 0:

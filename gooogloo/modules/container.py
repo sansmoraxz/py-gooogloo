@@ -36,6 +36,8 @@ class SearchResults(object):
             start += consts.NUM_RESULTS_PER_PAGE
             self.__results = requests.get(
                 f'{self.__end_pt}&{self.__params}&start={start}').json()
+        
+        # TODO: Scap from web pages after result 101
 
 
 class GoogleSearch(object):
