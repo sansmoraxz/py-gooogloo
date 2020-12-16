@@ -1,6 +1,6 @@
 RESURL = 'https://www.googleapis.com/customsearch/v1?'
-NUM_RESULTS_PER_PAGE = 10
 DEFAULT_CX = 'a07e95fc47a466f98'
+START_PAGE_CAP = 91
 
 CR = {
     'Afghanistan': 'countryAF',
