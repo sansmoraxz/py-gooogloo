@@ -23,7 +23,7 @@ class SearchResults(object):
     def results_iter(self):
         '''
         Returns an iterator yielding search result as `dict`
-'''
+        '''
 
         start_cap = 91  # start cap for json request
         start = 1
@@ -49,6 +49,7 @@ class GoogleSearch(object):
 
 
         Arguments:
+
         `api_key` -> your API key for identifying your application
         see https://developers.google.com/custom-search/v1/introduction#identify_your_application_to_google_with_api_key
 
@@ -60,19 +61,21 @@ class GoogleSearch(object):
             raise ValueError(f'Search Engine ID:{cx} is invalid.')
         self._api_key = api_key
         self._cx = cx
-        self.__end_pt = f'{consts.RESURL}key={api_key}&cx={cx}'
+        self.__end_pt = f'{consts.RESURL}key={api_key}'
 
     def search(self, q, **kwargs) -> SearchResults:
         '''
         Returns <- `SearchResults` object that queries the API.
 
         Keyword Arguments:
+
          `q` -> the search query
 
         For the rest of optinal parameters refer to: 
         https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list
         '''
         paras = {}
+        paras['cx'] = self._cx
         paras['q'] = requests.utils.quote(q)
         for k, v in kwargs:
             if k in consts.CSL_Q:
